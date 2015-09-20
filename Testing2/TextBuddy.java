@@ -61,12 +61,24 @@ public class TextBuddy {
 			case "exit": 
 				close();
 				break;
+			case "sort":
+				sort();
+				break;
 			default: 
 				displayToUser("Unrecognized command type");
 				break;
 			}
 		} catch(NumberFormatException e){
 			displayToUser("Please use a valid number");
+		}
+	}
+
+	private void sort() {
+		// TODO Auto-generated method stub
+		Collections.sort(listContents, String.CASE_INSENSITIVE_ORDER);
+		for(int i = 1; i < listContents.size(); i++){
+			System.out.print(i + ". " );
+			displayToUser(listContents.get(i));
 		}
 	}
 
